@@ -1,8 +1,9 @@
 import requests
+from pprint import pprint
+url = 'https://api.exchangeratesapi.io/latest?base=USD'
 
-url = 'https://randomuser.me/api/?results=5&gender=male&nat=us,gb'
+
 
 r = requests.get(url)
-data = r.json()['results']
-for i in data:
-    print(i['name'],i['nat'])
+print(r.url)
+pprint(r.json())
