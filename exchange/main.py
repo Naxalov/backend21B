@@ -1,7 +1,10 @@
 import requests
 
-url = 'https://randomuser.me/api/'
-p = {'results':2}
+url = 'https://randomuser.me/api/?results=5&gender=male&nat=us,gb'
+
 r = requests.get(url)
-print(r.url)
+data = r.json()['results']
+for i in data:
+    print(i['name'],i['nat'])
+
 # print(r.json())
