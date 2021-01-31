@@ -7,7 +7,7 @@ r = requests.get(url)
 data = r.json()
 updates = data['result']
 
-update = updates[0]
-message = update['message']
-user = message['from']
-print(user)
+for update in updates:
+    message = update['message']
+    user = message['from']
+    print(user)
