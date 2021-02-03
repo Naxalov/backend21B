@@ -12,5 +12,13 @@ def getUpdates():
     return updates
 
 # 86775091
+update_len = len(getUpdates())
+update_len_last = len(getUpdates())
 
-    
+
+while True:
+    update_len_last = len(getUpdates())
+
+    if update_len != update_len_last:
+        print(f'len:{update_len} len_last:{update_len_last}')
+        update_len = len(getUpdates())
