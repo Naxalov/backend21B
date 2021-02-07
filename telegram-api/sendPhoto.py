@@ -4,18 +4,20 @@ from pprint import pprint
 import os
 
 token =os.environ['TOKEN'] 
-
+# AgACAgQAAxkDAAOFYB_Uagy6IexogVEu2O-7qo4WxfUAAi2pMRu_5eRRVFC6sJAXyezMcqgbAAQBAAMCAANtAAOqfwACHgQ
 def sendPhoto(idx):
     url = f'https://api.telegram.org/bot{token}/sendPhoto'
+    photo = open('logo.jpeg','rb')
     payload = {
     'chat_id':idx,
-    'photo': 'https://random.dog/a1eba572-e557-474b-a023-e48ead3c2786.jpeg'
+    # 'photo': 'AgACAgQAAxkDAAOFYB_Uagy6IexogVEu2O-7qo4WxfUAAi2pMRu_5eRRVFC6sJAXyezMcqgbAAQBAAMCAANtAAOqfwACHgQ',
+    'caption':'TITLE'
     }
-    r = requests.get(url,params=payload)
+    r = requests.post(url,params=payload,files={'photo':photo})
     return r.json()
 
 
 ids= 86775091
-
+pprint(sendPhoto(ids))
 
     
